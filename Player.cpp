@@ -25,7 +25,8 @@ Player::Player(const Player& player)
 
 Player& Player::operator=(const Player& player)
 {
-    if (this == &player) {
+    if (this == &player)
+    {
 		return *this;
 	}
     m_name = player.m_name;
