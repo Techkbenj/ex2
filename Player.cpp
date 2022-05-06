@@ -1,4 +1,4 @@
-#include "player.h"
+#include "Player.h"
 
 const int default_level = 1;
 const int default_coins = 0;
