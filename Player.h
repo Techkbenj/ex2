@@ -33,12 +33,12 @@ class Player {
     * @return 
     *      A new Player.
     */
-    Player(const Player&);
+    Player(const Player& player);
 
     /*
      * D'tor of Player Class
      */
-    ~Player();
+    ~Player() = default;
 
     /*
      * Assignment operator of player Class
@@ -47,7 +47,7 @@ class Player {
      * @return 
      *      The assigned player 
      */
-    Player& operator=(const Player&);
+    Player& operator=(const Player& player);
 
     /*
      * Prints the stats of a player
