@@ -4,16 +4,8 @@
 #include <string>
 #include <iostream>
 #include "utilities.h"
-using namespace std;
 
 class Player {
-    string m_name; //The name of the player.
-    int m_level; //The level of the player. Range of level can be from 1 to 10.
-    int m_force; //The force points of a player.
-    int m_maxHp; //The max health points the player can have.
-    int m_hp; //The currect health points the player has.
-    int m_coins; //The number of coins the player possess.
-
     public:
 
      /*
@@ -25,7 +17,7 @@ class Player {
      * @return
      *      A new Player.
     */
-    Player(string name, int maxHp = 100, int force = 5);
+    Player(std::string name, int maxHp = 100, int force = 5);
 
     /*
     * Copy C'tor of Player class
@@ -55,7 +47,7 @@ class Player {
      * @return 
      *      void
      */
-    void prinfInfo();
+    void printInfo();
 
     /*
      * Levels up the player by 1 level.
@@ -134,6 +126,14 @@ class Player {
      *      The attack strength of the player.
      */
     int getAttackStrength();
+
+private:
+    std::string m_name; //The name of the player.
+    int m_level; //The level of the player. Range of level can be from 1 to 10.
+    int m_force; //The force points of a player.
+    int m_maxHp; //The max health points the player can have.
+    int m_hp; //The currect health points the player has.
+    int m_coins; //The number of coins the player possess.
 };
 
 #endif /* PLAYER_H */

@@ -2,8 +2,9 @@
 
 const int default_level = 1;
 const int default_coins = 0;
+const int max_level = 10;
 
-Player::Player(string name, int maxHp, int force)
+Player::Player(std::string name, int maxHp, int force)
 {
     m_name = name;
     m_level = default_level;
@@ -38,10 +39,10 @@ Player& Player::operator=(const Player& player)
     return *this;
 }
 
-void Player::prinfInfo()
+void Player::printInfo()
 {
-    char name[m_name.length()];
-    for (int i = 0; i < m_name.length(); i++)
+    char* name = new char[int(m_name.length())];
+    for (int i = 0; i < int(m_name.length()); i++)
     {
         name[i] = m_name[i];
     }
@@ -50,7 +51,10 @@ void Player::prinfInfo()
 
 void Player::levelUp()
 {
-    m_level++;
+    if (m_level < max_level)
+    {
+        m_level++;
+    }
 }
 
 int Player::getLevel()

@@ -46,7 +46,7 @@ public:
      *          True if the game ended
      *          False otherwise
      */
-    bool isOver();
+    bool isOver() const;
 
 
     /*
@@ -60,7 +60,11 @@ public:
     //TODO: complete the Mtmchkin class.
 
 private:
-    //TODO: complete the Mtmchkin class.
+    Player m_player;
+    Card* m_cards_array;
+    int m_size;
+    int m_index;
+    GameStatus m_game_status;
 
 };
 
