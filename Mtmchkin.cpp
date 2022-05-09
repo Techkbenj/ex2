@@ -15,6 +15,11 @@ Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCard
     }
 }
 
+Mtmchkin::~Mtmchkin()
+{
+    delete[] m_cards_array;
+}
+
 GameStatus Mtmchkin::getGameStatus() const
 {
     return this->m_game_status;
