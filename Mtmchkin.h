@@ -33,10 +33,11 @@ public:
      * D'tor of the game.
     */
 
-    Mtmchkin(const Mtmchkin& other);
-
     ~Mtmchkin();
 
+    Mtmchkin(const Mtmchkin& other);
+
+    Mtmchkin& operator=(const Mtmchkin& other);
     /*
      * Play the next Card - according to the instruction in the exercise document
      *
@@ -67,8 +68,8 @@ public:
 
 private:
     Player m_player;
-    const Card* m_cards_array;
-    const int m_size;
+    Card* m_cards_array;
+    int m_size;
     int m_index;
     GameStatus m_game_status;
 

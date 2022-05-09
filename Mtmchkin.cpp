@@ -30,6 +30,20 @@ Mtmchkin::Mtmchkin(const Mtmchkin &other) :
         m_size(other.m_size), m_index(0), m_game_status(GameStatus::MidGame)
 {}
 
+Mtmchkin &Mtmchkin::operator=(const Mtmchkin &other)
+{
+    if (this == &other)
+    {
+        return *this;
+    }
+    delete[] m_cards_array;
+    m_player = other.m_player;
+    m_cards_array = allocateCardsArray(other.m_cards_array, other.m_size);
+    m_size = other.m_size;
+    m_index = 0;
+    m_game_status = GameStatus::MidGame;
+    return *this;
+}
 
 GameStatus Mtmchkin::getGameStatus() const
 {
