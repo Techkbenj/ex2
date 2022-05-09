@@ -3,7 +3,7 @@
 //
 #include "Mtmchkin.h"
 
-const int max_level = 10;
+const int MAX_LEVEL = 10;
 
 Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
         m_player(Player(std::string(playerName))), m_cards_array(new Card[numOfCards]),
@@ -25,7 +25,7 @@ void Mtmchkin::playNextCard()
     Card playing_card = m_cards_array[m_index];
     playing_card.printInfo();
     playing_card.applyEncounter(m_player);
-    if (m_player.getLevel() == max_level)
+    if (m_player.getLevel() == MAX_LEVEL)
     {
         m_game_status = GameStatus::Win;
     }
