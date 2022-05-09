@@ -32,6 +32,9 @@ public:
     /*
      * D'tor of the game.
     */
+
+    Mtmchkin(const Mtmchkin& other);
+
     ~Mtmchkin();
 
     /*
@@ -61,14 +64,15 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
 
 private:
     Player m_player;
-    Card* m_cards_array;
-    int m_size;
+    const Card* m_cards_array;
+    const int m_size;
     int m_index;
     GameStatus m_game_status;
+
+    static Card* allocateCardsArray(const Card* cardsArray, int numOfCards);
 
 };
 

@@ -5,20 +5,31 @@
 
 const int MAX_LEVEL = 10;
 
-Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
-        m_player(Player(std::string(playerName))), m_cards_array(new Card[numOfCards]),
-        m_size(numOfCards), m_index(0), m_game_status(GameStatus::MidGame)
+Card *Mtmchkin::allocateCardsArray(const Card *cardsArray, int numOfCards)
 {
-    for (int i=0;i<numOfCards;i++)
+    Card* temp = new Card[numOfCards];
+    for (int i=0; i < numOfCards; i++)
     {
-        m_cards_array[i] = Card(cardsArray[i]);
+        temp[i] = cardsArray[i];
     }
+    return temp;
 }
+
+Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
+        m_player(Player(std::string(playerName))), m_cards_array(allocateCardsArray(cardsArray, numOfCards)),
+        m_size(numOfCards), m_index(0), m_game_status(GameStatus::MidGame)
+{}
 
 Mtmchkin::~Mtmchkin()
 {
     delete[] m_cards_array;
 }
+
+Mtmchkin::Mtmchkin(const Mtmchkin &other) :
+        m_player(other.m_player), m_cards_array(allocateCardsArray(other.m_cards_array, other.m_size)),
+        m_size(other.m_size), m_index(0), m_game_status(GameStatus::MidGame)
+{}
+
 
 GameStatus Mtmchkin::getGameStatus() const
 {
