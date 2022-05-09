@@ -57,12 +57,7 @@ Player& Player::operator=(const Player& player)
 
 void Player::printInfo()
 {
-    char name[m_name.length()];
-    for (int i = 0; i < m_name.length(); i++)
-    {
-        name[i] = m_name[i];
-    }
-    printPlayerInfo(name, m_level, m_force, m_hp, m_coins);
+    printPlayerInfo(m_name.c_str(), m_level, m_force, m_hp, m_coins);
 }
 
 void Player::levelUp()
