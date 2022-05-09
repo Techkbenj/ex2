@@ -55,7 +55,7 @@ Player& Player::operator=(const Player& player)
     return *this;
 }
 
-void Player::prinfInfo()
+void Player::printInfo()
 {
     char name[m_name.length()];
     for (int i = 0; i < m_name.length(); i++)

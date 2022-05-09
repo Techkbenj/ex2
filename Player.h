@@ -60,7 +60,7 @@ class Player {
      * @return 
      *      void
      */
-    void prinfInfo();
+    void printInfo();
 
     /*
      * Levels up the player by 1 level.
