@@ -31,16 +31,6 @@ Player::Player(string name, int maxHp, int force) :
     m_hp = maxHp;
 }
 
-Player::Player(const Player& player)
-{
-    m_name = player.m_name;
-    m_level = player.m_level;
-    m_force = player.m_force;
-    m_maxHp = player.m_maxHp;
-    m_hp = player.m_maxHp;
-    m_coins = player.m_coins;
-}
-
 Player& Player::operator=(const Player& player)
 {
     if (this == &player) {
@@ -105,7 +95,7 @@ void Player::damage(int hitPoints)
     }
 }
 
-bool Player::isKnockedOut()
+const bool Player::isKnockedOut()
 {
     return (m_hp == 0);
 }
@@ -132,7 +122,7 @@ bool Player::pay(int coins)
     return false;
 }
 
-int Player::getAttackStrength()
+const int Player::getAttackStrength()
 {
     return m_level + m_force;
 }

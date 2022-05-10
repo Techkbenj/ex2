@@ -17,8 +17,6 @@ class Player {
     int m_hp; //The currect health points the player has.
     int m_coins; //The number of coins the player possess.
 
-    bool isNegative(int number);
-
     public:
 
      /*
@@ -38,7 +36,7 @@ class Player {
     * @return 
     *      A new Player.
     */
-    Player(const Player& player);
+    Player(const Player& player) = default;
 
     /*
      * D'tor of Player Class
@@ -111,7 +109,7 @@ class Player {
      * @return 
      *      True if the player is knocked out.
      */
-    bool isKnockedOut();
+    const bool isKnockedOut();
 
     /*
      * Adds coins to the player.
@@ -138,7 +136,7 @@ class Player {
      * @return 
      *      The attack strength of the player.
      */
-    int getAttackStrength();
+    const int getAttackStrength();
 };
 
 #endif /* PLAYER_H */
