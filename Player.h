@@ -74,7 +74,7 @@ class Player {
      * @return 
      *      The level of the player.
      */
-    int getLevel();
+    const int getLevel();
 
     /*
      * Adds force points to the current force of the player.

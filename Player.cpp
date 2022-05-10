@@ -58,7 +58,7 @@ void Player::levelUp()
     }
 }
 
-int Player::getLevel()
+const int Player::getLevel()
 {
     return m_level;
 }
