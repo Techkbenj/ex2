@@ -50,7 +50,7 @@ class Player {
      * @return 
      *      The assigned player 
      */
-    Player& operator=(const Player& player);
+    Player& operator=(const Player& player) = default;
 
     /*
      * Prints the stats of a player
