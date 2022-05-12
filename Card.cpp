@@ -37,10 +37,6 @@ void Card::applyEncounter(Player &player) const
         {
             player.buff(m_stats.buff);
         }
-        else
-        {
-            std::cout << "Not enough coins";
-        }
         return;
     }
     if (m_effect == CardType::Heal)
@@ -48,10 +44,6 @@ void Card::applyEncounter(Player &player) const
         if (player.pay(m_stats.cost))
         {
             player.heal(m_stats.heal);
-        }
-        else
-        {
-            std::cout << "Not enough coins";
         }
         return;
     }

@@ -4,13 +4,12 @@
 #include <string>
 #include <iostream>
 #include "utilities.h"
-using namespace std;
 
 const int DEFAULT_MAX_HP = 100;
 const int DEFAULT_FORCE = 5;
 
 class Player {
-    string m_name; //The name of the player.
+    std::string m_name; //The name of the player.
     int m_level; //The level of the player. Range of level can be from 1 to 10.
     int m_force; //The force points of a player.
     int m_maxHp; //The max health points the player can have.
@@ -28,7 +27,7 @@ class Player {
      * @return
      *      A new Player.
     */
-    Player(string name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
+    Player(std::string name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
 
     /*
     * Copy C'tor of Player class
@@ -58,7 +57,7 @@ class Player {
      * @return 
      *      void
      */
-    void printInfo();
+    void printInfo() const;
 
     /*
      * Levels up the player by 1 level.
@@ -74,7 +73,7 @@ class Player {
      * @return 
      *      The level of the player.
      */
-    const int getLevel();
+    int getLevel() const;
 
     /*
      * Adds force points to the current force of the player.
@@ -109,7 +108,7 @@ class Player {
      * @return 
      *      True if the player is knocked out.
      */
-    const bool isKnockedOut();
+    bool isKnockedOut() const;
 
     /*
      * Adds coins to the player.
@@ -136,7 +135,7 @@ class Player {
      * @return 
      *      The attack strength of the player.
      */
-    const int getAttackStrength();
+    int getAttackStrength() const;
 };
 
 #endif /* PLAYER_H */

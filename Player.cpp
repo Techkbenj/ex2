@@ -4,34 +4,23 @@ const int DEFAULT_LEVEL = 1;
 const int DEFAULT_COINS = 0;
 const int MAX_LEVEL = 10;
 
-bool Player::isNegative(int number)
+static bool isNegative(int num)
 {
-    return (number < 0);
+    if (num < 0)
+    {
+        return true;
+    }
+    return false;
 }
 
-Player::Player(string name, int maxHp, int force) :
-    m_name(name), m_level(DEFAULT_LEVEL), m_coins(DEFAULT_COINS)
-{   
-    if(isNegative(force))
-    {
-        m_force = DEFAULT_FORCE;
-    }
-    else
-    {
-        m_force = force;
-    }
-    if(isNegative(maxHp))
-    {
-        m_maxHp = DEFAULT_MAX_HP;
-    }
-    else
-    {
-        m_maxHp = maxHp;
-    }
+Player::Player(std::string name, int maxHp, int force) :
+    m_name(name), m_level(DEFAULT_LEVEL), m_force(force <= 0 ? DEFAULT_FORCE : force),
+    m_maxHp(maxHp <= 0 ? DEFAULT_MAX_HP : maxHp), m_coins(DEFAULT_COINS)
+{
     m_hp = maxHp;
 }
 
-void Player::printInfo()
+void Player::printInfo() const
 {
     printPlayerInfo(m_name.c_str(), m_level, m_force, m_hp, m_coins);
 }
@@ -44,7 +33,7 @@ void Player::levelUp()
     }
 }
 
-const int Player::getLevel()
+int Player::getLevel() const
 {
     return m_level;
 }
@@ -81,7 +70,7 @@ void Player::damage(int hitPoints)
     }
 }
 
-const bool Player::isKnockedOut()
+bool Player::isKnockedOut() const
 {
     return (m_hp == 0);
 }
@@ -96,19 +85,18 @@ void Player::addCoins(int coins)
 
 bool Player::pay(int coins)
 {
-    if(isNegative(coins))
-    {
-        return false;
-    }
     if (m_coins >= coins)
     {
-        m_coins -= coins;
+        if (!isNegative(coins))
+        {
+            m_coins -= coins;
+        }
         return true;
     }
     return false;
 }
 
-const int Player::getAttackStrength()
+int Player::getAttackStrength() const
 {
     return m_level + m_force;
 }
