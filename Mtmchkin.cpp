@@ -52,9 +52,9 @@ GameStatus Mtmchkin::getGameStatus() const
 
 void Mtmchkin::playNextCard()
 {
-    Card playing_card = m_cards_array[m_index];
-    playing_card.printInfo();
-    playing_card.applyEncounter(m_player);
+    Card playingCard = m_cards_array[m_index];
+    playingCard.printInfo();
+    playingCard.applyEncounter(m_player);
     if (m_player.getLevel() == MAX_LEVEL)
     {
         m_game_status = GameStatus::Win;
